@@ -63,6 +63,7 @@ public class Topic_11_Alert {
 	{
 		String[] arrayUrl = url.split("//");
 		String newURL = arrayUrl[0] + Username + ":" + Password + "@" + arrayUrl[1];
+		System.out.println(newURL);
 		return newURL;
 	}
 	

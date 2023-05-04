@@ -43,22 +43,21 @@ public class Topic_09_Button {
 		driver.manage().window().maximize();
 	}
 
-	/*
-	 * @Test public void TC_01_Button() {
-	 * driver.get("https://www.fahasa.com/customer/account/create");
-	 * driver.findElement(By.cssSelector("li.popup-login-tab-login")).click(); By
-	 * loginbutton = By.cssSelector("button.fhs-btn-login");
-	 * Assert.assertFalse(driver.findElement(loginbutton).isEnabled());
-	 * driver.findElement(loginbutton).getCssValue("background-color");
-	 * System.out.println(driver.findElement(loginbutton).getCssValue(
-	 * "background-color"));
-	 * driver.findElement(By.id("login_username")).sendKeys("0373706904");
-	 * driver.findElement(By.id("login_password")).sendKeys("1234567890le"); String
-	 * loginbuttonbackground =
-	 * driver.findElement(loginbutton).getCssValue("background-color"); Color
-	 * loginbuttonbackgroundColor = Color.fromString(loginbuttonbackground); assert
-	 * loginbuttonbackgroundColor.asHex().toUpperCase().equals("#C92127"); 
-	 */
+	@Test
+	public void TC_01_Button() {
+		driver.get("https://www.fahasa.com/customer/account/create");
+		driver.findElement(By.cssSelector("li.popup-login-tab-login")).click();
+		By loginbutton = By.cssSelector("button.fhs-btn-login");
+		Assert.assertFalse(driver.findElement(loginbutton).isEnabled());
+		driver.findElement(loginbutton).getCssValue("background-color");
+		System.out.println(driver.findElement(loginbutton).getCssValue("background-color"));
+		driver.findElement(By.id("login_username")).sendKeys("0373706904");
+		driver.findElement(By.id("login_password")).sendKeys("1234567890le");
+		String loginbuttonbackground = driver.findElement(loginbutton).getCssValue("background-color");
+		Color loginbuttonbackgroundColor = Color.fromString(loginbuttonbackground);
+		Assert.assertTrue(loginbuttonbackgroundColor.asHex().toUpperCase().equals("#C92127"));
+	}
+
 	@Test
 	public void TC_02_Radiobutton_Checkbox() {
 		driver.get("https://automationfc.github.io/multiple-fields/");
@@ -68,7 +67,7 @@ public class Topic_09_Button {
 		}
 		Assert.assertTrue(driver.findElement(radio).isSelected());
 		sleepInsecond(1);
-		
+
 		List<WebElement> allcheckboxes = driver.findElements(By.cssSelector("input.form-checkbox"));
 		String arr[] = { "Asthma", "Digestive Problems", "Neurological Disorders" };
 		List<String> listexpecteditems = Arrays.asList(arr);
@@ -84,7 +83,6 @@ public class Topic_09_Button {
 	public void TC_03_Form() {
 
 	}
-	
 
 	public void sleepInsecond(long timeinSecond) {
 		try {
